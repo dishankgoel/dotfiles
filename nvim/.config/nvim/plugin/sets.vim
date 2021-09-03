@@ -1,4 +1,3 @@
-set guicursor=
 set relativenumber
 set nohlsearch
 set hidden
@@ -31,4 +30,4 @@ set updatetime=50
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-set colorcolumn=80
+" set colorcolumn=80
