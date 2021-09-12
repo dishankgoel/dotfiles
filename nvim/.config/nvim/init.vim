@@ -63,6 +63,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 " Statusline
 Plug 'famiu/feline.nvim'
 
+Plug 'lewis6991/gitsigns.nvim'
 
 call plug#end()
 
