@@ -32,6 +32,15 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
+" Install nvim-cmp
+Plug 'hrsh7th/nvim-cmp'
+
+" Install snippet engine (This example installs [hrsh7th/vim-vsnip](https://github.com/hrsh7th/vim-vsnip))
+Plug 'hrsh7th/vim-vsnip'
+
+" Install the buffer completion source
+Plug 'hrsh7th/cmp-buffer'
+
 " Color Schemes
 Plug 'gruvbox-community/gruvbox'
 Plug 'joshdick/onedark.vim'
@@ -75,7 +84,7 @@ xnoremap <leader>p "_dP
 " next greatest remap ever : asbjornHaland
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
-nnoremap <leader>Y gg"+yG
+nnoremap <leader>Y gg"+yG<C-o>
 
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d

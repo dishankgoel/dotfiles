@@ -1,3 +1,5 @@
 require("configs.lspinstall")
 require("configs.statusline")
 require("configs.webdevicons")
+require("configs.cmp")
+require("configs.telescope")
