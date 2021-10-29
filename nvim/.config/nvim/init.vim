@@ -7,6 +7,7 @@ set smartindent
 set exrc
 set relativenumber
 set nu
+set nowrap
 set nohlsearch
 set hidden
 set noerrorbells
@@ -66,10 +67,21 @@ Plug 'famiu/feline.nvim'
 
 Plug 'lewis6991/gitsigns.nvim'
 
+" Markdown preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+" Comments
+Plug 'b3nj5m1n/kommentary'
+
 call plug#end()
 
 lua require("configs")
-lua require'nvim-treesitter.configs'.setup { indent = { enable = true }, highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
+lua <<EOF
+require'nvim-treesitter.configs'.setup { indent = { enable = false }, highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
+require('kommentary.config').use_extended_mappings()
+EOF
+
+let g:mkdp_auto_close = 0
 
 
 colorscheme gruvbox
