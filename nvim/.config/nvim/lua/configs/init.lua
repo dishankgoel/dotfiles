@@ -1,4 +1,4 @@
-require("configs.lspinstall")
+require("configs.lsp")
 require("configs.statusline")
 require("configs.webdevicons")
 require("configs.cmp")

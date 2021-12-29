@@ -21,6 +21,7 @@ set scrolloff=8
 set noshowmode
 set signcolumn=yes
 set completeopt=menuone,noinsert
+set inccommand=nosplit
 
 set cmdheight=1
 set updatetime=50
@@ -37,8 +38,15 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 
+" Tabnine for code intelligence
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+
+Plug 'onsails/lspkind-nvim'
+
 " Install snippet engine (This example installs [hrsh7th/vim-vsnip](https://github.com/hrsh7th/vim-vsnip))
-Plug 'hrsh7th/vim-vsnip'
+" Plug 'hrsh7th/vim-vsnip'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'rafamadriz/friendly-snippets'
 
 " Install the buffer completion source
 Plug 'hrsh7th/cmp-buffer'
@@ -49,7 +57,7 @@ Plug 'joshdick/onedark.vim'
 
 " Syntax Highlighting and more
 Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall'
+Plug 'williamboman/nvim-lsp-installer'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -58,6 +66,9 @@ Plug 'tpope/vim-fugitive'
 
 " Undo trees
 Plug 'mbbill/undotree'
+
+" Formatting
+Plug 'sbdchd/neoformat'
 
 " icons
 Plug 'kyazdani42/nvim-web-devicons'
@@ -92,6 +103,11 @@ let mapleader = " "
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+nnoremap Y yg$
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
 " greatest remap ever
 xnoremap <leader>p "_dP
 
@@ -102,6 +118,8 @@ nnoremap <leader>Y gg"+yG<C-o>
 
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
+
+nnoremap <leader>pv :Ex<CR>
 
 inoremap <C-c> <esc>
 
@@ -114,4 +132,9 @@ endfun
 augroup DISHANK
     autocmd!
     autocmd BufWritePre * :call TrimWhitespace()
+augroup END
+
+augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
 augroup END
