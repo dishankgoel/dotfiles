@@ -35,6 +35,11 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 ```
 sudo apt install zlib1g-dev libncurses-dev rapidjson-dev
 ```
+or Instead of going through `:LspInstall ccls`, directly install it using:
+```
+sudo apt-get install ccls
+```
+and make sure to add `.ccls` at the root of the project
 
 1. Clone the repository:
 ```
