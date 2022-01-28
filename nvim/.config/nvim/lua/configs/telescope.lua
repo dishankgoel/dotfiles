@@ -10,9 +10,13 @@ require("telescope").setup({
         qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 
         mappings = {
+            n = {
+                ['<C-d>'] = require('telescope.actions').delete_buffer
+            },
             i = {
                 ["<C-x>"] = false,
                 ["<C-q>"] = actions.send_to_qflist,
+                ['<C-d>'] = require('telescope.actions').delete_buffer
             },
         },
     },
