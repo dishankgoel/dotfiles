@@ -57,7 +57,7 @@ Plug 'joshdick/onedark.vim'
 
 " Syntax Highlighting and more
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
+" Plug 'williamboman/nvim-lsp-installer'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -83,6 +83,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 
 " Comments
 Plug 'b3nj5m1n/kommentary'
+
+" Helm
+Plug 'towolf/vim-helm'
 
 call plug#end()
 
@@ -129,10 +132,22 @@ fun! TrimWhitespace()
     call winrestview(l:save)
 endfun
 
-augroup DISHANK
+" augroup DISHANK
+"     autocmd!
+"     autocmd BufWritePre * :call TrimWhitespace()
+" augroup END
+
+augroup FileTypeSettingsTerraform
     autocmd!
-    autocmd BufWritePre * :call TrimWhitespace()
+    autocmd BufEnter *.tf,*.tfvars silent! lua vim.opt_local.filetype = 'terraform'
 augroup END
+
+augroup FileTypeSettingsHelm
+    autocmd!
+    autocmd BufEnter *.tpl silent! lua vim.opt_local.filetype = 'helm'
+augroup END
+
+autocmd BufWritePre *.tf lua vim.lsp.buf.formatting_sync()
 
 augroup highlight_yank
     autocmd!
