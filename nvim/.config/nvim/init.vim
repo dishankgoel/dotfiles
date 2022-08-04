@@ -54,7 +54,8 @@ Plug 'hrsh7th/cmp-buffer'
 " Color Schemes
 Plug 'gruvbox-community/gruvbox'
 Plug 'joshdick/onedark.vim'
-Plug 'Mofiqul/vscode.nvim'
+" Plug 'Mofiqul/vscode.nvim'
+Plug 'tomasiser/vim-code-dark'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 " Syntax Highlighting and more
@@ -100,7 +101,7 @@ EOF
 let g:mkdp_auto_close = 0
 
 
-colorscheme tokyonight
+colorscheme gruvbox
 highlight Normal guibg=none
 
 let mapleader = " "
