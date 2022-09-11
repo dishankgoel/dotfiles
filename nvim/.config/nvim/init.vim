@@ -31,8 +31,8 @@ call plug#begin('~/.vim/plugged')
 " Navigation
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
 " Install nvim-cmp
 Plug 'hrsh7th/nvim-cmp'
@@ -53,14 +53,18 @@ Plug 'hrsh7th/cmp-buffer'
 
 " Color Schemes
 Plug 'gruvbox-community/gruvbox'
-Plug 'joshdick/onedark.vim'
-" Plug 'Mofiqul/vscode.nvim'
-Plug 'tomasiser/vim-code-dark'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+" Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'catppuccin/nvim', {'as': 'catppuccin', 'do': 'CatppuccinCompile'}
+Plug 'ayu-theme/ayu-vim'
+Plug 'bluz71/vim-nightfly-guicolors'
+Plug 'bluz71/vim-moonfly-colors'
+Plug 'marko-cerovac/material.nvim'
 
 " Syntax Highlighting and more
 Plug 'neovim/nvim-lspconfig'
 " Plug 'williamboman/nvim-lsp-installer'
+
+Plug 'windwp/nvim-autopairs'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -100,8 +104,21 @@ EOF
 
 let g:mkdp_auto_close = 0
 
+" colorscheme gruvbox
+" colorscheme tokyonight-night
 
-colorscheme gruvbox
+" let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
+" colorscheme catppuccin
+
+" let ayucolor="dark"   " for dark version of theme
+" colorscheme ayu
+" colorscheme nightfly
+" colorscheme moonfly
+
+let g:material_style = "deep ocean"
+colorscheme material
+
+
 highlight Normal guibg=none
 
 let mapleader = " "
