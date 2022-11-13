@@ -1,5 +1,4 @@
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -72,6 +71,23 @@ require('lspconfig')['gopls'].setup{
     capabilities = capabilities,
 }
 
+require'lspconfig'['clangd'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+}
+
+require'lspconfig'.html.setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+}
+
+require'lspconfig'.pyright.setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+}
 --[[ require('lspconfig')['yamlls'].setup{
     settings = {
         yaml = {

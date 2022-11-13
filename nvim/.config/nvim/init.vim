@@ -1,5 +1,6 @@
 au VimLeave,VimSuspend * set guicursor=a:ver90
 
+set nofixendofline
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
@@ -59,6 +60,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'bluz71/vim-moonfly-colors'
 Plug 'marko-cerovac/material.nvim'
+Plug 'shaunsingh/oxocarbon.nvim', { 'do': './install.sh' }
 
 " Syntax Highlighting and more
 Plug 'neovim/nvim-lspconfig'
@@ -67,6 +69,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'windwp/nvim-autopairs'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-context'
 
 " Git integrations
 Plug 'tpope/vim-fugitive'
@@ -106,6 +109,7 @@ let g:mkdp_auto_close = 0
 
 " colorscheme gruvbox
 " colorscheme tokyonight-night
+" colorscheme oxocarbon
 
 " let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
 " colorscheme catppuccin
@@ -117,7 +121,6 @@ let g:mkdp_auto_close = 0
 
 let g:material_style = "deep ocean"
 colorscheme material
-
 
 highlight Normal guibg=none
 
@@ -167,7 +170,11 @@ augroup FileTypeSettingsHelm
     autocmd BufEnter *.tpl silent! lua vim.opt_local.filetype = 'helm'
 augroup END
 
-autocmd BufWritePre *.tf lua vim.lsp.buf.formatting_sync()
+augroup FileTypeSettingsDocker
+    autocmd!
+    autocmd BufEnter *dockerfile silent! lua vim.opt_local.filetype = 'dockerfile'
+
+autocmd BufWritePre *.tf,*.go lua vim.lsp.buf.formatting_sync()
 
 augroup highlight_yank
     autocmd!

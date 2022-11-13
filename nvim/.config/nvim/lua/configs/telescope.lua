@@ -11,7 +11,7 @@ require("telescope").setup({
             '--smart-case',
             '-uu' -- thats the new thing
         },
-        file_ignore_patterns = {"node_modules", ".git"},
+        file_ignore_patterns = {"node_modules", ".git/"},
         file_sorter = require("telescope.sorters").get_fzy_sorter,
         prompt_prefix = " >",
         color_devicons = true,
