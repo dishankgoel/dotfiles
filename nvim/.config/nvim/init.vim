@@ -129,7 +129,7 @@ let mapleader = " "
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-nnoremap Y yg$
+nnoremap Y y$
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
@@ -146,6 +146,10 @@ nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
 nnoremap <leader>pv :Ex<CR>
+
+nnoremap <C-j> :cnext<CR>
+nnoremap <C-k> :cprev<CR>
+nnoremap <C-q> :cclose<CR>
 
 inoremap <C-c> <esc>
 

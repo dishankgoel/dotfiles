@@ -11,3 +11,6 @@ nnoremap <leader>gc :lua require('configs.telescope').git_branches()<CR>
 nnoremap <leader>gw :lua require('telescope').extensions.git_worktree.git_worktrees()<CR>
 nnoremap <leader>gm :lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>
 nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
+
+nnoremap gj <cmd>diffget //3<CR>
+nnoremap gf <cmd>diffget //2<CR>

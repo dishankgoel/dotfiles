@@ -81,18 +81,14 @@ cmp.setup({
     },
     sources = {
         { name = 'nvim_lsp' },
-        { name = 'cmp_tabnine' },
-
-        -- For vsnip user.
-        -- { name = 'vsnip' },
-
+        { name = 'buffer' },
         -- For luasnip user.
         { name = 'luasnip' },
-
+        { name = 'cmp_tabnine' },
+        -- For vsnip user.
+        -- { name = 'vsnip' },
         -- For ultisnips user.
         -- { name = 'ultisnips' },
-
-        { name = 'buffer' },
     }
 })
 

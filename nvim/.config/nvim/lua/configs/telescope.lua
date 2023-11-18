@@ -42,7 +42,8 @@ require("telescope").setup({
     },
     pickers = {
         find_files = {
-            hidden = true
+            hidden = true,
+            find_command = { "rg", "--files", "--sort", "path" },
         }
     }
 })
