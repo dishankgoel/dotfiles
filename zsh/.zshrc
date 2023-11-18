@@ -100,6 +100,20 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#
+
+open_repo() {
+    dirs=$(find ~/Documents/infurnia ~/Documents/infurnia/practice -mindepth 1 -maxdepth 1 -type d)
+    dirs+="\n/Users/dishank/dotfiles"
+    selected=$(IFS='\n' echo "${dirs[*]}" | fzf)
+
+    if [[ -z $selected ]]; then
+        exit 0
+    fi
+
+    cd $selected
+    nvim .
+}

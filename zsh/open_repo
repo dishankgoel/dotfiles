@@ -8,3 +8,5 @@ fi
 
 cd $selected
 nvim .
+echo $selected
+cd $selected
