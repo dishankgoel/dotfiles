@@ -83,6 +83,8 @@ Plug 'sbdchd/neoformat'
 " icons
 Plug 'kyazdani42/nvim-web-devicons'
 
+Plug 'folke/trouble.nvim'
+
 " Statusline
 Plug 'famiu/feline.nvim'
 
@@ -178,7 +180,7 @@ augroup FileTypeSettingsDocker
     autocmd!
     autocmd BufEnter *dockerfile silent! lua vim.opt_local.filetype = 'dockerfile'
 
-autocmd BufWritePre *.tf,*.go lua vim.lsp.buf.formatting_sync()
+autocmd BufWritePre *.tf,*.go lua vim.lsp.buf.format()
 
 augroup highlight_yank
     autocmd!
