@@ -1,5 +1,6 @@
 require("configs.lsp")
-require("configs.feline")
+-- require("configs.feline")
+require("configs.lualine")
 require("configs.webdevicons")
 require("configs.cmp")
 require("configs.telescope")

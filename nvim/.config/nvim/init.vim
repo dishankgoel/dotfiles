@@ -81,12 +81,13 @@ Plug 'mbbill/undotree'
 Plug 'sbdchd/neoformat'
 
 " icons
-Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-tree/nvim-web-devicons'
 
 Plug 'folke/trouble.nvim'
 
 " Statusline
-Plug 'famiu/feline.nvim'
+" Plug 'famiu/feline.nvim'
+Plug 'nvim-lualine/lualine.nvim'
 
 Plug 'lewis6991/gitsigns.nvim'
 
