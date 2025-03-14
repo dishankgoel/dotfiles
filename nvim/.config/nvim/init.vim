@@ -34,13 +34,17 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+Plug 'nvim-pack/nvim-spectre'
 
 " Install nvim-cmp
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 
+Plug 'luckasRanarison/tailwind-tools.nvim'
+
 " Tabnine for code intelligence
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+Plug 'github/copilot.vim'
 
 Plug 'onsails/lspkind-nvim'
 
@@ -104,7 +108,7 @@ call plug#end()
 
 lua require("configs")
 lua <<EOF
-require'nvim-treesitter.configs'.setup { indent = { enable = false }, highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
+require'nvim-treesitter.configs'.setup { indent = { enable = true }, highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 require('kommentary.config').use_extended_mappings()
 EOF
 
@@ -170,6 +174,11 @@ endfun
 augroup FileTypeSettingsTerraform
     autocmd!
     autocmd BufEnter *.tf,*.tfvars silent! lua vim.opt_local.filetype = 'terraform'
+augroup END
+
+augroup FileTypeSettingsHelmfile
+    autocmd!
+    autocmd BufEnter helmfile.yaml silent! lua vim.opt_local.filetype = 'yaml'
 augroup END
 
 augroup FileTypeSettingsHelm

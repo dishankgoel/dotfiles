@@ -37,7 +37,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+    vim.keymap.set('n', '<space>f', vim.lsp.buf.format, bufopts)
 end
 
 local lsp_flags = {
@@ -88,6 +88,17 @@ require'lspconfig'.pyright.setup{
     flags = lsp_flags,
     capabilities = capabilities,
 }
+
+--[[ require'lspconfig'.eslint.setup({
+  --- ...
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end,
+}) ]]
+
 --[[ require('lspconfig')['yamlls'].setup{
     settings = {
         yaml = {

@@ -106,7 +106,7 @@ source $ZSH/oh-my-zsh.sh
 #
 
 open_repo() {
-    dirs=$(find ~/Documents/infurnia ~/Documents/infurnia/practice -mindepth 1 -maxdepth 1 -type d)
+    dirs=$(find ~/Documents/ -mindepth 1 -maxdepth 1 -type d)
     dirs+="\n/Users/dishank/dotfiles"
     selected=$(IFS='\n' echo "${dirs[*]}" | fzf)
 

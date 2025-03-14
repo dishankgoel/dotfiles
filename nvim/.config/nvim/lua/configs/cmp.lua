@@ -75,6 +75,7 @@ cmp.setup({
                     vim_item.kind = ''
                 end
                 vim_item.menu = menu
+                require("tailwind-tools.cmp").lspkind_format(entry, vim_item)
                 return vim_item
             end
         })

@@ -1,6 +1,8 @@
 #!/bin/bash
 
-selected=$(find ~/Documents/infurnia ~/Documents/infurnia/practice -mindepth 1 -maxdepth 1 -type d | fzf)
+# trying to get the git information, but too slow
+# selected=$(find ~/Documents/ -mindepth 1 -maxdepth 1 -type d | while read d; do cd $d; b=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo No Git); echo $d \($b\);done | fzf)
+selected=$(find ~/Documents -mindepth 1 -maxdepth 1 -type d | fzf)
 
 if [[ -z $selected ]]; then
     exit 0
